@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace inTouchDB
+namespace inTouchDB //improve my knowledge on namespaces
 {
 
 	class Program //class is the definition of object
@@ -397,7 +397,7 @@ namespace inTouchDB
 
 				TrackData82 trackData82Obj = new TrackData82();
 			
-				trackData82Obj.AddTrackData82(Convert.ToString(areaChar), accessName, from, to, file);
+				trackData82Obj.AddTrackData82(Convert.ToString(areaChar), accessName + "_AAI", from, to, file);
 			}
 
 			//close file
@@ -473,7 +473,7 @@ namespace inTouchDB
 
 				//M     X_M_W#	            IOInt		DB30,B		(#-1)
 				//M     X_M_R#	            IOInt		DB31,B		(#-1)
-				//M     X_Mi_R#	            IOInt		DB32,W		(#-1)*2
+				//M     X_Mi_R#	            IOInt		DB32,INT		(#-1)*2
 
 				recordIOInt.SetIOInt(area + "_M_W" + entry.Key);
 				recordIOInt.SetItemName(doubleQuote + "DB30,B" + (entry.Key - 1) + doubleQuote);
@@ -484,7 +484,7 @@ namespace inTouchDB
 				CSVFile.WriteLine(recordIOInt.CSVSerialize());
 
 				recordIOInt.SetIOInt(area + "_Mi_R" + entry.Key);
-				recordIOInt.SetItemName(doubleQuote + "DB32,W" + ((entry.Key - 1) * 2) + doubleQuote);
+				recordIOInt.SetItemName(doubleQuote + "DB32,INT" + ((entry.Key - 1) * 2) + doubleQuote);
 				CSVFile.WriteLine(recordIOInt.CSVSerialize());
 
 				//M     X_Mp_W#_1       IOInt		DB33,D		(#-1)*16+0
